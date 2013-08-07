@@ -43,4 +43,5 @@ public class Crafting extends Job {
 		}
 
 	}
-	}}
+	}
+}

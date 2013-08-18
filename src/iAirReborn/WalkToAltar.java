@@ -8,6 +8,7 @@ public class WalkToAltar extends Job {
 	public WalkToAltar(MethodContext ctx) {
 		super(ctx);
 	}
+	
 
 	@Override
 	public boolean activate() {
@@ -28,4 +29,6 @@ public class WalkToAltar extends Job {
 
 	}
 
+
 }
+

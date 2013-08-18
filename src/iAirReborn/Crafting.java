@@ -2,7 +2,9 @@ package iAirReborn;
 
 import org.powerbot.script.methods.MethodContext;
 import org.powerbot.script.util.Timer;
+import org.powerbot.script.wrappers.Area;
 import org.powerbot.script.wrappers.GameObject;
+import org.powerbot.script.wrappers.Tile;
 
 public class Crafting extends Job {
 
@@ -14,11 +16,14 @@ public class Crafting extends Job {
 	private Timer t = new Timer(4000);
 	private int temp1 = 0;
 	private int temp2 = 0;
+	private final Area deadArea = new Area(new Tile[] {
+			new Tile(3083, 3432, 0), new Tile(3117, 3425, 0),
+			new Tile(3116, 3378, 0), new Tile(3080, 3378, 0) });
 
 	@Override
 	public boolean activate() {
 		return ctx.objects.select().id(2478).nearest().first() != null
-				&& ctx.backpack.select().id(Vars.essence).count() > 0 ;
+				&& ctx.backpack.select().id(Vars.essence).count() > 0 && !deadArea.contains(ctx.players.local());
 	}
 
 	@Override
